@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT;
@@ -13,6 +12,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
 
 app.use('/api/user', require('./router/api/user'));
+app.use('/api/ques', require('./router/api/ques'));
 
 app.listen(PORT, (err) => {
  if (err) {

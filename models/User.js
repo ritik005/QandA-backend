@@ -25,7 +25,10 @@ UserSchema.methods.generateAuthToken = ()=> {
      email: this.email,
      name: this.name
    },
-   process.env.JWT_PRIVATE_KEY
+   process.env.JWT_PRIVATE_KEY,
+   {
+     expiresIn:'15m'
+   }
  );
  return token;
 };
