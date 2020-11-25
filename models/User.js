@@ -27,7 +27,7 @@ UserSchema.methods.generateAuthToken = ()=> {
    },
    process.env.JWT_PRIVATE_KEY,
    {
-     expiresIn:'15m'
+     expiresIn:'1D'
    }
  );
  return token;

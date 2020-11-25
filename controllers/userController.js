@@ -19,8 +19,9 @@ const loginUser = async (req, res) => {
     const token = user.generateAuthToken();
     res.header("x-auth-token", token);
     return res.status(200).json({
-      message: `login success and the token is: ${token}`,
+      message: `login success`,
       user: user,
+      token,
     });
   } catch (err) {
     return res
@@ -35,7 +36,7 @@ const createUser = async (req, res) => {
     if (user)
       return res
         .status(200)
-        .json({ message: "user already exist", user: null });
+        .json({ message: "email already exist", user: null });
 
     let newUser = new User({
       name: req.body.name,
